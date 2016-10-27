@@ -5,15 +5,14 @@ MAINTAINER bigboards
 USER root 
 
 RUN apt-get update \
-    && apt-get install -y hive hive-metastore hive-server2 hive-hbase \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y hive hive-metastore hive-server2 hive-hbase \
     && apt-get clean \
     && apt-get autoclean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/apt/archives/*
 
 ADD docker_files/hive-metastore-run.sh /apps/hive-metastore-run.sh
 ADD docker_files/hive-server-run.sh /apps/hive-server-run.sh
-RUN chmod a+x /apps/hive-metastore-run \
-    && chmod a+x /apps/hive-server-run
+RUN chmod a+x /apps/hive-metastore-run.sh /apps/hive-server-run.sh
 
 # declare the volumes
 RUN mkdir /etc/hadoop/conf.bb && \
