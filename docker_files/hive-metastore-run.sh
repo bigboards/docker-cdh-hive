@@ -1,2 +1,2 @@
 #!/bin/bash
-/usr/bin/hive --config /etc/hadoop/conf metastore
+/usr/bin/hive --config /etc/hadoop/conf --service metastore

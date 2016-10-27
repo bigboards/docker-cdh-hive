@@ -1,2 +1,2 @@
 #!/bin/bash
-/usr/bin/hive --config /etc/hadoop/conf hiveserver2
+/usr/bin/hive --config /etc/hadoop/conf --service hiveserver2
